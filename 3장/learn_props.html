@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <title>Vue Props Sample</title>
+  </head>
+  <body>
+    <div id="app">
+        <!--4. html component tag 추가-->
+      <child-component v-bind:propsdata="message"></child-component> 
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      Vue.component('child-component', { // 2. child-component 생성
+        props: ['propsdata'],    //3. props 를 통한 propsdata 정의
+        template: '<p>{{ propsdata }}</p>', //5. 출력
+      });
+
+      new Vue({      // 1. new instance 생성
+        el: '#app',
+        data: {
+          message: 'Hello Vue! passed from Parent Component'
+        }
+      });
+    </script>
+  </body>
+</html>
