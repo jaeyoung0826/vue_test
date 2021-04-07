@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Vue Template - Computed vs Methods</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{ message }}</p>
+      <button v-on:click="reverseMsg">문자열 역순</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello Vue.js!'
+        },
+        methods:{  //methods는 수동 동작으로 해당로직에서만 동작
+        //computed: {  computed 는 버튼을 클릭하기도전에 변경 (자동적으로 값이변경되면 수행)
+          reverseMsg: function() {  
+            this.message = this.message.split('').reverse().join('');
+            return this.message;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
